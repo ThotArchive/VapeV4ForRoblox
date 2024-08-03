@@ -85,14 +85,14 @@ local vapeAssetTable = {
 	["vape/assets/VapeLogo2.png"] = "rbxassetid://13350876307",
 	["vape/assets/VapeLogo4.png"] = "rbxassetid://13350877564"
 }
-if inputService:GetPlatform() ~= Enum.Platform.Windows then
-	--mobile exploit fix
-	getgenv().getsynasset = nil
-	getgenv().getcustomasset = nil
-	-- why is this needed
-	getsynasset = nil
-	getcustomasset = nil
-end
+
+--mobile exploit fix
+getgenv().getsynasset = nil
+getgenv().getcustomasset = nil
+-- why is this needed
+getsynasset = nil
+getcustomasset = nil
+
 local getcustomasset = getsynasset or getcustomasset or function(location) return vapeAssetTable[location] or "" end
 local customassetcheck = (getsynasset or getcustomasset) and true
 local queueonteleport = syn and syn.queue_on_teleport or queue_on_teleport or function() end
